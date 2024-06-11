@@ -6,7 +6,6 @@ python-dotenv
 beautifulsoup4
 faiss-cpu
 unstructured
-markdown
 langchain_community
 fastembed
 tqdm==v4.19.1
