@@ -10,9 +10,7 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from langchain.chains import create_retrieval_chain
 from langchain_core.prompts import ChatPromptTemplate
-from langchain_chroma import Chroma
 import time
-import markdown
 from langchain_community.document_loaders import UnstructuredMarkdownLoader
 
 
@@ -35,7 +33,7 @@ if "vector" not in st.session_state:
 
     st.session_state.text_splitter = RecursiveCharacterTextSplitter(chunk_size=3000, chunk_overlap=200)
     st.session_state.documents = st.session_state.text_splitter.split_documents( st.session_state.docs)
-    st.session_state.vector = Chroma.from_documents(st.session_state.documents, st.session_state.embeddings)
+    st.session_state.vector = FAISS.from_documents(st.session_state.documents, st.session_state.embeddings)
 st.title("Legal drafting")
 
 
