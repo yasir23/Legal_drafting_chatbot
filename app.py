@@ -37,7 +37,7 @@ if "vector" not in st.session_state:
 
     st.session_state.embeddings = FastEmbedEmbeddings(model_name = 'BAAI/bge-small-en-v1.5')
 
-    st.session_state.loader = JSONLoader(file_path)
+    st.session_state.loader = PyPDFLoader(file_path)
     st.session_state.docs = st.session_state.loader.load()
 
     st.session_state.text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
